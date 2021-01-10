@@ -10,7 +10,7 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 const session = require('express-session');
 const fileMiddleware = require('./middleware/file');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const compression = require('compression');
 
 
@@ -71,7 +71,7 @@ app.use(session({
 app.use(fileMiddleware.single('avatar'));
 app.use(csrf());
 app.use(flash());
-app.use(helmet({contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false}));
+// app.use(helmet({contentSecurityPolicy: (process.env.NODE_ENV === 'production') ? undefined : false}));
 app.use(compression());
 app.use(varMiddleware);
 app.use(userMiddleware);
